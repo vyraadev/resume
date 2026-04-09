@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shristi Singh — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --soft: #4a4a6a;
+    --muted: #8888aa;
+    --accent: #c45c8a;
+    --accent2: #7c6fcd;
+    --bg: #faf9f7;
+    --rule: #e8e4f0;
+    --tag-bg: #f0edf8;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 4px 40px rgba(100,80,140,.10);
+    border-radius: 2px;
+    overflow: hidden;
+    animation: fadeUp .6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--ink);
+    padding: 44px 52px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,92,138,.25) 0%, transparent 70%);
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,111,205,.2) 0%, transparent 70%);
+  }
+
+  .open-badge {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #a8f5c8;
+    background: rgba(168,245,200,.12);
+    border: 1px solid rgba(168,245,200,.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    margin-bottom: 18px;
+  }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .title-line {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,.55);
+    letter-spacing: .04em;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    position: relative;
+  }
+
+  .contact-item {
+    font-size: 12px;
+    color: rgba(255,255,255,.7);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .contact-item a {
+    color: rgba(255,255,255,.7);
+    text-decoration: none;
+  }
+
+  .contact-item a:hover { color: white; }
+
+  .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  /* BODY */
+  .body {
+    padding: 44px 52px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 0 40px;
+  }
+
+  .main { }
+  .sidebar { border-left: 1px solid var(--rule); padding-left: 32px; }
+
+  /* SECTION */
+  .section { margin-bottom: 36px; }
+
+  .section-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* PROFILE */
+  .profile-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--soft);
+  }
+
+  .profile-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 24px; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+    gap: 12px;
+  }
+
+  .job-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .job-date {
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .job-company {
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .job-bullets li {
+    font-size: 12.5px;
+    color: var(--soft);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .job-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 1.5px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* SIDEBAR */
+  .sidebar-section { margin-bottom: 28px; }
+
+  .sidebar-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  /* SKILLS */
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-group-name {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    font-size: 10.5px;
+    color: var(--soft);
+    background: var(--tag-bg);
+    padding: 3px 9px;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+
+  .tag.tech {
+    background: #eef0fb;
+    color: var(--accent2);
+  }
+
+  /* EDUCATION */
+  .edu-item { margin-bottom: 14px; }
+
+  .edu-school {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .edu-detail {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* LANGUAGES */
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .lang-name {
+    font-size: 12px;
+    color: var(--soft);
+  }
+
+  .lang-level {
+    font-size: 10px;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .lang-bar {
+    width: 100%;
+    height: 2px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  .lang-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+  }
+
+  /* TECH PROJECTS */
+  .project { margin-bottom: 12px; }
+
+  .project-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .project-desc {
+    font-size: 11.5px;
+    color: var(--soft);
+    line-height: 1.6;
+  }
+
+  @media print {
+    body { padding: 0; background: white; }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="open-badge">✦ Open to Internships &amp; Freelance Roles</div>
+    <div class="name">Shristi Singh</div>
+    <div class="title-line">Content Writer &nbsp;·&nbsp; Social Media Manager &nbsp;·&nbsp; SEO Writer &nbsp;·&nbsp; Storyteller &nbsp;·&nbsp; Tech Explorer</div>
+    <div class="contact-row">
+      <span class="contact-item"><span class="dot"></span> +91 8677002211</span>
+      <span class="contact-item"><span class="dot"></span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="34475c465d47405d475559555d4655745359555d581a575b59">[email&#160;protected]</a></span>
+      <span class="contact-item"><span class="dot"></span> Lucknow, India</span>
+      <span class="contact-item"><span class="dot"></span> <a href="https://www.linkedin.com/in/shristi-singh" target="_blank">LinkedIn</a></span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- MAIN COLUMN -->
+    <div class="main">
+
+      <!-- PROFILE -->
+      <div class="section">
+        <div class="section-label">Profile</div>
+        <p class="profile-text">
+          Creative content professional with <strong>3+ years of experience</strong> driving brand growth for Indian startups and international clients. Grew a personal Instagram community to <strong>4K+ followers</strong> and delivered high-performing content across industries — from NGO campaigns to K-culture media to SaaS brands. Now expanding into tech through active <strong>GitHub projects and LeetCode practice</strong>, combining storytelling instincts with problem-solving rigour. Ready to bring both creative and analytical value to teams that move fast and care about craft.
+        </p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-label">Work Experience</div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Freelance Content Writer &amp; Social Media Manager</div>
+            <div class="job-date">Dec 2025 – Apr 2026</div>
+          </div>
+          <div class="job-company">UK-Based Client · Remote</div>
+          <ul class="job-bullets">
+            <li>Delivered SEO-optimised content tailored for a global audience across multiple formats</li>
+            <li>Adapted brand tone for an international market — met every deadline across time zones</li>
+            <li>Sole content point of contact, managing brief-to-publish workflow independently</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Social Media Manager</div>
+            <div class="job-date">Aug – Jan 2026</div>
+          </div>
+          <div class="job-company">Get Zenny · Remote, India</div>
+          <ul class="job-bullets">
+            <li>Led end-to-end Instagram content strategy — ideation, scripting, and publishing</li>
+            <li>Produced high-performing reels aligned with trending audience behaviour</li>
+            <li>Maintained consistent brand voice and measurably improved engagement</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Social Media Manager</div>
+            <div class="job-date">Sep – Dec 2025</div>
+          </div>
+          <div class="job-company">Kavoo Team · Remote, India</div>
+          <ul class="job-bullets">
+            <li>Built and managed monthly content calendars across platforms</li>
+            <li>Developed creative campaigns that increased organic reach and follower interaction</li>
+            <li>Used performance insights to iterate content strategy in real time</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Content &amp; Campaign Intern</div>
+            <div class="job-date">Jul 2023 – Apr 2025</div>
+          </div>
+          <div class="job-company">Project Welfare · Hybrid</div>
+          <ul class="job-bullets">
+            <li>Wrote social media content and copy for donation drives and awareness campaigns</li>
+            <li>Crafted fundraising messaging that connected emotionally with diverse audiences</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Content &amp; Campaign Intern</div>
+            <div class="job-date">May 2022 – Mar 2023</div>
+          </div>
+          <div class="job-company">Project You're Loved · Hybrid</div>
+          <ul class="job-bullets">
+            <li>Created storytelling-led content for NGO outreach and awareness campaigns</li>
+            <li>Collaborated cross-functionally to keep content aligned with campaign objectives</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Content Contributor &amp; Editor</div>
+            <div class="job-date">Apr 2021 – Jul 2023</div>
+          </div>
+          <div class="job-company">Hallyuism India · Remote</div>
+          <ul class="job-bullets">
+            <li>Wrote and edited articles on Korean culture for an engaged niche readership</li>
+            <li>Maintained editorial accuracy through thorough research and peer review</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- TECH PROJECTS -->
+      <div class="section">
+        <div class="section-label">Tech Projects</div>
+        <div class="project">
+          <div class="project-name">Java &amp; HTML Projects · GitHub</div>
+          <div class="project-desc">Built and version-controlled Java scripts demonstrating logic, problem-solving, and basic GUI development. Exploring structured coding practices through real deployable projects.</div>
+        </div>
+        <div class="project">
+          <div class="project-name">LeetCode Problem Solving</div>
+          <div class="project-desc">Actively solving DSA problems to build algorithmic thinking. Focus on arrays, strings, and logic-based challenges.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-school">Loreto Convent Intermediate College</div>
+          <div class="edu-detail">PCM + Computer Science &amp; English<br>2023 – 2025</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">Loreto Convent School</div>
+          <div class="edu-detail">ICSE Grade 10 · GPA 3.7 / 4.0<br>2012 – 2023</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Content Skills</div>
+        <div class="tags">
+          <span class="tag">Content Writing</span>
+          <span class="tag">Copywriting</span>
+          <span class="tag">SEO Writing</span>
+          <span class="tag">Creative Storytelling</span>
+          <span class="tag">Social Media Strategy</span>
+          <span class="tag">Instagram Growth</span>
+          <span class="tag">Campaign Content</span>
+          <span class="tag">Brand Voice</span>
+          <span class="tag">Proofreading</span>
+          <span class="tag">Content Structuring</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Technical Skills</div>
+        <div class="tags">
+          <span class="tag tech">Python (Beginner)</span>
+          <span class="tag tech">Java (Intermediate)</span>
+          <span class="tag tech">HTML (Intermediate)</span>
+          <span class="tag tech">GitHub</span>
+          <span class="tag tech">DSA Basics</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Languages</div>
+
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+
+        <div class="lang-item">
+          <span class="lang-name">Hindi</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+
+        <div class="lang-item">
+          <span class="lang-name">Korean</span>
+          <span class="lang-level">Intermediate</span>
+        </div>
+        <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
+
+        <div class="lang-item">
+          <span class="lang-name">Chinese</span>
+          <span class="lang-level">Basic</span>
+        </div>
+        <div class="lang-bar"><div class="lang-fill" style="width:30%"></div></div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Open To</div>
+        <div class="tags">
+          <span class="tag">Internships</span>
+          <span class="tag">Freelance</span>
+          <span class="tag">Part-time</sp
