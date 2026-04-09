@@ -1,5 +1,5 @@
 # Resume
 Resume built from HTML 
-
-I have built my resume using HTMl, keeping it minimal and similiar to Canva templates
+Live demo - https://vyraadev.github.io/resume/
+I have built my resume using HTML, keeping it minimal and similiar to Canva templates
 
